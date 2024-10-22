@@ -1,0 +1,54 @@
+<!-- patients.component.html -->
+<div class="patient-form">
+  <mat-card>
+    <form (ngSubmit)="editingPatientId ? updatePatient() : addPatient()">
+      <mat-form-field appearance="outline">
+        <mat-label>Patient Name</mat-label>
+        <input matInput [(ngModel)]="newPatient.name" name="name" required>
+        <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput [(ngModel)]="newPatient.age" name="age" required type="number">
+        <mat-icon matPrefix>cake</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="newPatient.gender" name="gender" required>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+        <mat-icon matPrefix>wc</mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>{{ editingPatientId ? 'update' : 'add' }}</mat-icon>
+        {{ editingPatientId ? 'Update Patient' : 'Add Patient' }}
+      </button>
+    </form>
+  </mat-card>
+</div>
+
+<h3>Patients List</h3>
+<p *ngIf="patients.length > 0">
+  Total Patients ({{ patients.length }})
+</p>
+<div *ngFor="let patient of patients" class="patient-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ patient.name }}</mat-card-title>
+      <mat-card-subtitle>Age: {{ patient.age }} | Gender: {{ patient.gender }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="editPatient(patient)">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-button color="warn" (click)="deletePatient(patient._id)">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

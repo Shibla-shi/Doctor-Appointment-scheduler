@@ -1,0 +1,59 @@
+<!-- appointment.component.html -->
+<form class="appointment-form" (ngSubmit)="editingAppointmentId ? updateAppointment() : addAppointment()">
+  <mat-form-field appearance="outline">
+    <mat-label>..Patient</mat-label>
+    <mat-select [(ngModel)]="newAppointment.patientName" [ngModelOptions]="{ standalone: true }" required>
+      <mat-icon matPrefix>person</mat-icon>
+      <mat-option *ngFor="let patient of patients" [value]="patient.name">{{ patient.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>..Doctor</mat-label>
+    <mat-select [(ngModel)]="newAppointment.doctorName" [ngModelOptions]="{ standalone: true }" required>
+      <mat-icon matPrefix>local_hospital</mat-icon>
+      <mat-option *ngFor="let doctor of doctors" [value]="doctor.name">{{ doctor.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="newAppointment.date" name="date" required>
+    <!-- <mat-icon matSuffix>calendar_today</mat-icon> -->
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    <mat-icon>{{ editingAppointmentId ? 'update' : 'add' }}</mat-icon>
+    {{ editingAppointmentId ? 'Update Appointment' : 'Add Appointment' }}
+  </button>
+</form>
+
+<!-- Appointments List -->
+<h3>Appointments List</h3>
+<p *ngIf="appointments.length > 0">
+  Total Appointments: ({{ appointments.length }})
+</p>
+<div *ngFor="let appointment of appointments" class="appointment-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>person</mat-icon> {{ appointment.patientName }} with 
+         {{ appointment.doctorName }} 
+        <span>({{ appointment.doctorSpecialization }})</span>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <mat-icon>calendar_today</mat-icon> {{ appointment.date | date: 'MMM d, y' }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="editAppointment(appointment)">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-button color="warn" (click)="deleteAppointment(appointment.id)">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

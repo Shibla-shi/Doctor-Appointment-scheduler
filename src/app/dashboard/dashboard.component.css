@@ -1,0 +1,53 @@
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1200px; /* Max width for the dashboard */
+    margin: 0 auto; /* Center the dashboard */
+    padding: 20px; /* Padding around the dashboard */
+    background-color: #f4f4f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Button Container */
+  .button-container {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: flex-start; /* Align buttons to the start */
+    margin-bottom: 20px; /* Space below the buttons */
+  }
+  
+  /* Dashboard Buttons */
+  .dashboard-button {
+    margin-right: 15px; /* Space between buttons */
+    font-size: 16px; /* Font size for buttons */
+    padding: 10px 20px; /* Padding for buttons */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+  }
+  
+  /* Hover Effect for Buttons */
+  .dashboard-button:hover {
+    background-color: #3f51b5; /* Change background on hover */
+    color: white; /* Change text color on hover */
+  }
+  
+  /* Router Outlet Styles */
+  router-outlet {
+    margin-top: 20px; /* Space above the router outlet */
+    padding: 20px; /* Padding for the outlet */
+    background-color: #ffffff; /* White background for content */
+    border-radius: 5px; /* Rounded corners for content area */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for content */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .button-container {
+      flex-direction: column; /* Stack buttons vertically on smaller screens */
+      align-items: flex-start; /* Align buttons to the start */
+    }
+    
+    .dashboard-button {
+      margin-bottom: 10px; /* Space between buttons */
+      width: 100%; /* Full width for buttons */
+    }
+  }
+  

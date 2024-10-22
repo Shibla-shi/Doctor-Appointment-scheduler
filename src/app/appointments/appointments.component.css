@@ -1,0 +1,94 @@
+/* General styles */
+.appointment-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+    padding-top: 8px; /* Adds space above the label */
+    padding-left: 16px; /* Adds space to the left of the label */
+  }
+
+
+
+
+
+
+
+
+
+mat-icon {
+  color: #364453; /* Customize icon color */
+}
+
+/* Button styles */
+button {
+  margin-top: 10px;
+}
+
+/* Appointments List */
+h3 {
+  margin: 20px 0 10px 0;
+  color: #333;
+}
+
+.appointment-card {
+  margin-bottom: 15px;
+}
+
+/* Mat-card styles */
+mat-card {
+  padding: 10px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+mat-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card header title styles */
+mat-card-title {
+  display: flex;
+  align-items: center;
+}
+
+mat-card-title mat-icon {
+  margin-right: 8px;
+  color: #25415e; /* Customize title icon color */
+}
+
+mat-card-subtitle {
+  color: #555; /* Subtitle color */
+}
+
+/* Button styles in card actions */
+mat-card-actions button {
+  margin-right: 10px;
+}
+
+mat-card-actions button mat-icon {
+  margin-right: 5px;
+}
+
+mat-card-actions button:hover {
+  background-color: rgba(25, 118, 210, 0.1); /* Hover effect for buttons */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .appointment-form {
+    padding: 15px;
+  }
+  
+  mat-form-field {
+    margin-bottom: 15px;
+  }
+}

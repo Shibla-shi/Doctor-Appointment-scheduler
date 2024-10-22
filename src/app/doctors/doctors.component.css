@@ -1,0 +1,47 @@
+/* doctor.component.css */
+
+.doctor-form {
+  max-width: 600px; /* Center the form */
+  margin: 20px auto; /* Add margin to top and bottom */
+}
+
+mat-card {
+  padding: 20px; /* Add padding inside the card */
+  margin-bottom: 20px; /* Space between cards */
+}
+
+mat-form-field {
+  width: 100%; /* Full width of the form field */
+  margin-bottom: 16px; /* Space between form fields */
+}
+
+button {
+  margin-top: 20px; /* Space above the submit button */
+}
+
+.doctor-card {
+  margin: 10px 0; /* Space between doctor cards */
+}
+
+.doctor-card mat-card {
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.doctor-card mat-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Elevation effect on hover */
+}
+
+h3 {
+  font-weight: bold; /* Make the title bold */
+  margin-bottom: 10px; /* Space below title */
+}
+
+p {
+  font-size: 1em; /* Size of the total doctors text */
+  color: #555; /* Color for the total doctors text */
+}
+
+.mat-icon {
+  vertical-align: middle; /* Align icons with text */
+  margin-right: 4px; /* Space between icon and text */
+}

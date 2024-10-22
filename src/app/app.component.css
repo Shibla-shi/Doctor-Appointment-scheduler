@@ -1,0 +1,48 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  padding: 20px; /* Add padding around the container */
+  background-color: #f5f5f5; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h1 {
+  margin-bottom: 20px; /* Space between heading and buttons */
+  font-size: 2.5em; /* Larger font size for the title */
+  color: #3f4a8b;
+  font-family: fantasy;}
+
+button {
+  margin: 0 10px; /* Space between buttons */
+  text-transform: capitalize; /* Capitalize button text */
+}
+
+button.mat-button {
+  background-color: #1976d2; /* Primary color for the button */
+  color: white; /* Text color for the button */
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover effect for buttons */
+button.mat-button:hover {
+  background-color: #1565c0; /* Darker shade on hover */
+}
+
+/* Active link styling */
+.active-link {
+  font-weight: bold; /* Bold text for active link */
+  background-color: #0056b3; /* Background color for active link */
+  color: white; /* Text color for active link */
+  border-radius: 5px; /* Match button rounding */
+}
+
+/* Optional: Styles for the router-outlet */
+router-outlet {
+  margin-top: 20px; /* Space between buttons and content */
+  width: 100%; /* Ensure it takes the full width */
+  max-width: 800px; /* Optional: Limit max width for better layout */
+}

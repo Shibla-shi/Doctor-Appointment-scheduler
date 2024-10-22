@@ -1,0 +1,52 @@
+<!-- doctor.component.html -->
+<div class="doctor-form">
+  <mat-card>
+    <form (ngSubmit)="editingDoctorId ? updateDoctor() : addDoctor()">
+      <mat-form-field appearance="outline">
+        <mat-label>Doctor Name</mat-label>
+        <input matInput [(ngModel)]="newDoctor.name" name="name" required>
+        <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Specialization</mat-label>
+        <input matInput [(ngModel)]="newDoctor.specialization" name="specialization" required>
+        <mat-icon matPrefix>medical_services</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="newDoctor.phone" name="phone" required>
+        <mat-icon matPrefix>phone</mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>{{ editingDoctorId ? 'update' : 'add' }}</mat-icon>
+        {{ editingDoctorId ? 'Update Doctor' : 'Add Doctor' }}
+      </button>
+    </form>
+  </mat-card>
+</div>
+
+<h3>Doctors List</h3>
+<p *ngIf="doctors.length > 0">
+  Total Doctors ({{ doctors.length }})
+</p>
+<div *ngFor="let doctor of doctors" class="doctor-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ doctor.name }}</mat-card-title>
+      <mat-card-subtitle>
+        Specialty: {{ doctor.specialization }} | Phone: {{ doctor.phone }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="editDoctor(doctor)">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-button color="warn" (click)="deleteDoctor(doctor._id)">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
